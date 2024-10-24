@@ -1,10 +1,12 @@
-import ChatIcon from './svg/Chat';
-import ArrowIcon from './svg/Arrow';
+// import ChatIcon from './svg/Chat';
+// import ArrowIcon from './svg/Arrow';
 
 const App = () => {
   return (
-    <div>
-      <h1 className='text-red-600'>Welcome to the Frontend</h1>
+    <div className="">
+      <h1 className='customh1'>
+        <p className="">Welcome to the Frontend</p>
+      </h1>
     </div>
   );
 }
