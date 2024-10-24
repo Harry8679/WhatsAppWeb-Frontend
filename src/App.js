@@ -1,7 +1,10 @@
+import ChatIcon from './svg/Chat';
+import ArrowIcon from './svg/Arrow';
+
 const App = () => {
   return (
-    <div className="App">
-      Hello World !
+    <div>
+      <h1>Welcome to the Frontend</h1>
     </div>
   );
 }
