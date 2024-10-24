@@ -1,12 +1,22 @@
-// import ChatIcon from './svg/Chat';
-// import ArrowIcon from './svg/Arrow';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Register from "./pages/Register";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import { useDispatch } from "react-redux";
+import { logout } from "./features/userSlice";
 
 const App = () => {
+  const dispatch = useDispatch();
   return (
-    <div className="">
-      <h1 className='customh1'>
-        <p className="">Welcome to the Frontend</p>
-      </h1>
+    <div className="dark">
+      <button onClick={() => { dispatch(logout()) }}>Logout</button>
+      <Router>
+        <Routes>
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
