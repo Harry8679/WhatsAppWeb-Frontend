@@ -1,8 +1,10 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { signUpSchema } from '../../utils/validation';
 
 const RegisterForm = () => {
-  const { register, handleSubmit, watch, formState: { errors } } = useForm();
+  const { register, handleSubmit, watch, formState: { errors } } = useForm({ resolver: yupResolver(signUpSchema) });
   const onSubmit = (data) => console.log(data);
   console.log('values', watch());
   console.log('errors', errors);
@@ -17,7 +19,7 @@ const RegisterForm = () => {
         </div>
         {/* Form */}
         <form onSubmit={handleSubmit(onSubmit)} className='mt-6 space-y-6'>
-            <input type="text" {...register('name', { required: true })} />
+            <input type="text" {...register('name')} />
             <button type='submit'>Submit</button>
         </form>
       </div>
