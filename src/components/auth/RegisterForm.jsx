@@ -1,6 +1,11 @@
-import React from 'react'
+import React from 'react';
+import { useForm } from 'react-hook-form';
 
 const RegisterForm = () => {
+  const { register, handleSubmit, watch, formState: { errors } } = useForm();
+  const onSubmit = (data) => console.log(data);
+  console.log('values', watch());
+  console.log('errors', errors);
   return (
     <div className='h-screen w-full flex items-center justify-center overflow-hidden'>
       {/* Container */}
@@ -11,7 +16,10 @@ const RegisterForm = () => {
             <p className='mt-2 text-sm'>Sign up</p>
         </div>
         {/* Form */}
-        <form className='mt-6 space-y-6'></form>
+        <form onSubmit={handleSubmit(onSubmit)} className='mt-6 space-y-6'>
+            <input type="text" {...register('name', { required: true })} />
+            <button type='submit'>Submit</button>
+        </form>
       </div>
     </div>
   )
