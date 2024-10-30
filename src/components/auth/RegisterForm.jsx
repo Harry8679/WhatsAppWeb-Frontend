@@ -14,13 +14,6 @@ const RegisterForm = () => {
   const { status, error } = useSelector((state) => state.user);
   const { register, handleSubmit, watch, formState: { errors } } = useForm({ resolver: yupResolver(signUpSchema) });
 
-//   const onSubmit = (data) => {
-//     let res = dispatch(registerUser({ ...data, picture:'' }));
-//     console.log('res', res);
-//     if (res.payload.user) {
-//         navigate('/');
-//     }
-//   };
 const onSubmit = async (data) => {
     const res = await dispatch(registerUser({ ...data, picture: '' }));
 
