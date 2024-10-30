@@ -8,7 +8,7 @@ const Picture = ({ readablePicture }) => {
       </label>
       {readablePicture ? (
         <div>
-            <img src={readablePicture} alt='picture' />
+            <img src={readablePicture} alt='about_me' />
         </div>
       ): (
         <div className='w-full h-12 dark:bg-dark_bg_3 rounded-md font-bold flex items-center justify-center cursor-pointer'>
