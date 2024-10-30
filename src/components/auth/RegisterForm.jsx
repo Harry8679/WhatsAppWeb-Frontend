@@ -5,6 +5,7 @@ import { signUpSchema } from '../../utils/validation';
 import AuthInput from './AuthInput';
 import { useSelector } from 'react-redux';
 import { PulseLoader } from 'react-spinners';
+import { Link } from 'react-router-dom';
 
 const RegisterForm = () => {
   const { status } = useSelector((state) => state.user);
@@ -32,6 +33,10 @@ const RegisterForm = () => {
             hover:bg-green_2 shadow-lg cursor-pointer transition ease-in duration-300'>
                 {status === 'loading' ? <PulseLoader color='#fff' size={16} /> : 'Sign Up'}
             </button>
+            <p className="flex flex-col items-center justify-center mt-10 text-center text-md dark:text-dark_text_1">
+                <span>Have an account ?</span>
+                <Link to='/login' className='hover:underline cursor-pointer transition ease-in duration-300'>Sign in</Link>
+            </p>
         </form>
       </div>
     </div>
