@@ -25,7 +25,8 @@ const RegisterForm = () => {
             <AuthInput name='email' type='email' placeholder='Email' register={register} error={errors?.email?.message} />
             <AuthInput name='status' type='text' placeholder='Status' register={register} error={errors?.status?.message} />
             <AuthInput name='password' type='password' placeholder='Password' register={register} error={errors?.password?.message} />
-            <button type='submit'>Submit</button>
+            <button type='submit' className='w-full flex justify-center bg-green_1 text-gray-100 p-4 rounded-full tracking-wide font-semibold focus:outline-none
+            hover:bg-green_2 shadow-lg cursor-pointer transition ease-in duration-300'>Submit</button>
         </form>
       </div>
     </div>
