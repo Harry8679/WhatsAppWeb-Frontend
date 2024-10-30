@@ -3,6 +3,8 @@ import axios from 'axios';
 
 const AUTH_ENDPOINT = `${process.env.REACT_APP_API_ENDPOINT}/auth`;
 
+console.log("API Endpoint:", process.env.REACT_APP_API_ENDPOINT); // Cela devrait afficher 'http://localhost:8080/api/v1'
+
 const initialState = {
     status: '',
     error: '',
@@ -50,7 +52,7 @@ export const userSlice = createSlice({
         .addCase(registerUser.fulfilled, (state, action) => {
             state.status = 'successed';
             state.error = '';
-            state.user = action.payload.user;
+            state.user = action.payload.user; // Assurez-vous que action.payload contient un champ user.
         })
         .addCase(registerUser.rejected, (state, action) => {
             state.status = 'failed';
