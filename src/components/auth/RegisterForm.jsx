@@ -41,7 +41,7 @@ const onSubmit = async (data) => {
             {/* <input type="text" {...register('name')} /> */}
             <AuthInput name='name' type='text' placeholder='Full Name' register={register} error={errors?.name?.message} />
             <AuthInput name='email' type='email' placeholder='Email' register={register} error={errors?.email?.message} />
-            <AuthInput name='status' type='text' placeholder='Status' register={register} error={errors?.status?.message} />
+            <AuthInput name='status' type='text' placeholder='Status (Optional)' register={register} error={errors?.status?.message} />
             <AuthInput name='password' type='password' placeholder='Password' register={register} error={errors?.password?.message} />
             {/* If we have an error */}
             {error ? (
