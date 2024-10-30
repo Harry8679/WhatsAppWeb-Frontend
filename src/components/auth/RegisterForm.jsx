@@ -13,12 +13,25 @@ const RegisterForm = () => {
   const navigate = useNavigate();
   const { status, error } = useSelector((state) => state.user);
   const { register, handleSubmit, watch, formState: { errors } } = useForm({ resolver: yupResolver(signUpSchema) });
-  const onSubmit = (data) => {
-    dispatch(registerUser({ data, picture:'' }));
-    if (status === 'success') {
+
+//   const onSubmit = (data) => {
+//     let res = dispatch(registerUser({ ...data, picture:'' }));
+//     console.log('res', res);
+//     if (res.payload.user) {
+//         navigate('/');
+//     }
+//   };
+const onSubmit = async (data) => {
+    const res = await dispatch(registerUser({ ...data, picture: '' }));
+
+    console.log('res', res);
+
+    // Vérifie si le payload contient user avant de naviguer
+    if (res.payload && res.payload.user) {
         navigate('/');
     }
-  };
+};
+
   console.log('values', watch());
   console.log('errors', errors);
   return (

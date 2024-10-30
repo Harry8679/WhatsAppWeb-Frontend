@@ -45,9 +45,11 @@ export const userSlice = createSlice({
     extraReducers(builder) {
         builder.addCase(registerUser.pending, (state, action) => {
             state.status = 'loading';
+            // state.error = '';
         })
         .addCase(registerUser.fulfilled, (state, action) => {
             state.status = 'successed';
+            state.error = '';
             state.user = action.payload.user;
         })
         .addCase(registerUser.rejected, (state, action) => {
