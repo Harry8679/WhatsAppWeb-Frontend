@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     status: '',
@@ -12,6 +12,8 @@ const initialState = {
         token: '',
     }
 };
+
+
 
 export const userSlice = createSlice({ 
     name: 'user', 
