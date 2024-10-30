@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { signUpSchema } from '../../utils/validation';
@@ -13,6 +13,9 @@ const RegisterForm = () => {
   const navigate = useNavigate();
   const { status, error } = useSelector((state) => state.user);
   const { register, handleSubmit, watch, formState: { errors } } = useForm({ resolver: yupResolver(signUpSchema) });
+
+  const [picture, setPicture] = useState();
+  const [readablePicture, setReadablePicture] = useState('');
 
 const onSubmit = async (data) => {
     const res = await dispatch(registerUser({ ...data, picture: '' }));
