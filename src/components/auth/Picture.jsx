@@ -1,6 +1,7 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 
 const Picture = ({ readablePicture }) => {
+  const [error, setError] = useState('');
   const inputRef = useRef();
   const handlePicture = (e) => {
     let pic = e.target.files[0];
@@ -23,6 +24,10 @@ const Picture = ({ readablePicture }) => {
         </div>
       )}
       <input type="file" name='picture' id='picture' hidden ref={inputRef} accept='image/png, image/jpeg, image/webp' onChange={handlePicture}/>
+      {/* Error */}
+      <div className="mt-2">
+        <p className="text-red-400">{error}</p>
+      </div>
     </div>
   )
 }
