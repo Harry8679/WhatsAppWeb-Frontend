@@ -28,6 +28,11 @@ const Picture = ({ readablePicture, setPicture, setReadablePicture }) => {
       }
     }
   };
+  const handleChangePic = () => {
+    setPicture('');
+    setReadablePicture('');
+    inputRef.current.click();
+  };
   return (
     <div className='mt-8 content-center dark:text-dark_text_1 space-y-1'>
       <label htmlFor="picture" className='text-sm font-bold tracking-wide'>

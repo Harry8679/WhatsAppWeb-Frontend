@@ -32,7 +32,7 @@ const onSubmit = async (data) => {
   console.log('values', watch());
   console.log('errors', errors);
   return (
-    <div className='h-screen w-full flex items-center justify-center overflow-hidden'>
+    <div className='min-h-screen w-full flex items-center justify-center overflow-hidden'>
       {/* Container */}
       <div className='w-full max-w-md space-y-8 p-10 dark:bg-dark_bg_2 rounded-xl'>
         {/* Heading */}
