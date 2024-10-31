@@ -35,6 +35,12 @@ const onSubmit = async (data) => {
   console.log(picture, setPicture);
   console.log('values', watch());
   console.log('errors', errors);
+
+  const uploadImage = async () => {
+    let formData = FormData();
+    formData.append('upload_preset', '')
+  };
+
   return (
     <div className='min-h-screen w-full flex items-center justify-center overflow-hidden'>
       {/* Container */}
