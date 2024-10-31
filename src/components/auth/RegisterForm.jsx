@@ -20,9 +20,7 @@ const RegisterForm = () => {
 
 const onSubmit = async (data) => {
     const res = await dispatch(registerUser({ ...data, picture: '' }));
-
     console.log('res', res);
-
     // Vérifie si le payload contient user avant de naviguer
     if (res.payload && res.payload.user) {
         navigate('/');
