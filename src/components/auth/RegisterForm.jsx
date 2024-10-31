@@ -28,7 +28,7 @@ const onSubmit = async (data) => {
         navigate('/');
     }
 };
-
+  console.log(picture, setPicture);
   console.log('values', watch());
   console.log('errors', errors);
   return (

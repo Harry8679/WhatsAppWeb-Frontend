@@ -18,6 +18,7 @@ const Picture = ({ readablePicture, setPicture, setReadablePicture }) => {
     } else if (pic.size > 1024 * 1024 * 5) {
       setError(`${pic.name} is too large, maximum 5mb allowed.`);
     } else {
+      setError('');
       setPicture(pic);
       // Reading the picture
       const reader = new FileReader();
@@ -26,7 +27,7 @@ const Picture = ({ readablePicture, setPicture, setReadablePicture }) => {
         setReadablePicture(e.target.result);
       }
     }
-  }
+  };
   return (
     <div className='mt-8 content-center dark:text-dark_text_1 space-y-1'>
       <label htmlFor="picture" className='text-sm font-bold tracking-wide'>
@@ -34,7 +35,7 @@ const Picture = ({ readablePicture, setPicture, setReadablePicture }) => {
       </label>
       {readablePicture ? (
         <div>
-            <img src={readablePicture} alt='about_me' />
+            <img src={readablePicture} alt='about_me' className='w-20 h-20 object-cover rounded-full' />
         </div>
       ): (
         <div className='w-full h-12 dark:bg-dark_bg_3 rounded-md font-bold flex items-center justify-center cursor-pointer' onClick={() => inputRef.current.click()}>
