@@ -31,7 +31,7 @@ const Picture = ({ readablePicture, setPicture, setReadablePicture }) => {
   const handleChangePic = () => {
     setPicture('');
     setReadablePicture('');
-    inputRef.current.click();
+    // inputRef.current.click();
   };
   return (
     <div className='mt-8 content-center dark:text-dark_text_1 space-y-1'>
@@ -42,7 +42,7 @@ const Picture = ({ readablePicture, setPicture, setReadablePicture }) => {
         <div>
             <img src={readablePicture} alt='about_me' className='w-20 h-20 object-cover rounded-full' />
             {/* Change pic */}
-            <div className="mt-2 py-1 w-20 dark:bg-dark_bg_3 rounded-md flex items-center justify-center cursor-pointer" onClick={() => handleChangePic()}>Change</div>
+            <div className="mt-2 py-1 w-20 dark:bg-dark_bg_3 rounded-md flex items-center justify-center cursor-pointer" onClick={() => handleChangePic()}>Remove</div>
         </div>
       ): (
         <div className='w-full h-12 dark:bg-dark_bg_3 rounded-md font-bold flex items-center justify-center cursor-pointer' onClick={() => inputRef.current.click()}>
