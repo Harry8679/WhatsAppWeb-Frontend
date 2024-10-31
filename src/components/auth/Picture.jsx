@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
 
-const Picture = ({ readablePicture }) => {
+const Picture = ({ readablePicture, setPicture, setReadablePicture }) => {
   const [error, setError] = useState('');
   const inputRef = useRef();
   const handlePicture = (e) => {
@@ -18,7 +18,13 @@ const Picture = ({ readablePicture }) => {
     } else if (pic.size > 1024 * 1024 * 5) {
       setError(`${pic.name} is too large, maximum 5mb allowed.`);
     } else {
-      
+      setPicture(pic);
+      // Reading the picture
+      const reader = new FileReader();
+      reader.readAsDataURL(pic);
+      reader.onload = (e) => {
+        setReadablePicture(e.target.result);
+      }
     }
   }
   return (
