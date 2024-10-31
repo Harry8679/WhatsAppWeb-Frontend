@@ -5,9 +5,18 @@ const Picture = ({ readablePicture }) => {
   const inputRef = useRef();
   const handlePicture = (e) => {
     let pic = e.target.files[0];
+
+    // Vérifiez si un fichier a bien été sélectionné
+    if (!pic) {
+      setError("Aucun fichier n'a été sélectionné.");
+      return;
+    }
+    
     if (pic.type !== 'image/jpeg' && pic.type !== 'image/png' && pic.type !== 'image/webp') {
       setError(`${pic.name} format is not supportable.`);
       return;
+    } else if (pic.size > 1024 * 1024 * 5) {
+      setError(`${pic.name} is too large, maximum 5mb allowed.`);
     }
   }
   return (
