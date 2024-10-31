@@ -19,15 +19,17 @@ const RegisterForm = () => {
   const [readablePicture, setReadablePicture] = useState('');
 
 const onSubmit = async (data) => {
+    let res;
     if (picture) {
       // Upload to cloudinary and then register user
     } else {
-      const res = await dispatch(registerUser({ ...data, picture: '' }));
+      // res = await dispatch(registerUser({ ...data, picture: '' }));
+      res = dispatch(registerUser({ ...data, picture: '' }));
       console.log('res', res);
       // Vérifie si le payload contient user avant de naviguer
-      if (res.payload && res.payload.user) {
-          navigate('/');
-      }
+    }
+    if (res.payload && res.payload.user) {
+      navigate('/');
     }
 };
   console.log(picture, setPicture);
