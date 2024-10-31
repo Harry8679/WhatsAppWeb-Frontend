@@ -47,7 +47,7 @@ const onSubmit = async (data) => {
             <AuthInput name='email' type='email' placeholder='Email' register={register} error={errors?.email?.message} />
             <AuthInput name='status' type='text' placeholder='Status (Optional)' register={register} error={errors?.status?.message} />
             <AuthInput name='password' type='password' placeholder='Password' register={register} error={errors?.password?.message} />
-            <Picture readablePicture={readablePicture} />
+            <Picture readablePicture={readablePicture} setPicture={setPicture} />
             {/* If we have an error */}
             {error ? (
                 <div><p className='text-red-400'>{error}</p></div>
@@ -67,4 +67,4 @@ const onSubmit = async (data) => {
   )
 }
 
-export default RegisterForm
+export default RegisterForm;

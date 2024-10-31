@@ -17,6 +17,8 @@ const Picture = ({ readablePicture }) => {
       return;
     } else if (pic.size > 1024 * 1024 * 5) {
       setError(`${pic.name} is too large, maximum 5mb allowed.`);
+    } else {
+      
     }
   }
   return (
