@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useRef } from 'react'
 
 const Picture = ({ readablePicture }) => {
+  const inputRef = useRef();
   return (
     <div className='mt-8 content-center dark:text-dark_text_1 space-y-1'>
       <label htmlFor="picture" className='text-sm font-bold tracking-wide'>
@@ -15,6 +16,7 @@ const Picture = ({ readablePicture }) => {
             Upload picture
         </div>
       )}
+      <input type="file" name='picture' id='picture' hidden ref={inputRef} accept='image/png, image/jpeg, image/webp'/>
     </div>
   )
 }
