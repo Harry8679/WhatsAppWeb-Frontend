@@ -6,6 +6,7 @@ const Picture = ({ readablePicture }) => {
   const handlePicture = (e) => {
     let pic = e.target.files[0];
     if (pic.type !== 'image/jpeg' && pic.type !== 'image/png' && pic.type !== 'image/webp') {
+      setError(`${pic.name} format is not supportable.`);
       return;
     }
   }
