@@ -22,7 +22,7 @@ const Picture = ({ readablePicture }) => {
             Upload picture
         </div>
       )}
-      <input type="file" name='picture' id='picture' hidden ref={inputRef} accept='image/png, image/jpeg, image/webp'/>
+      <input type="file" name='picture' id='picture' hidden ref={inputRef} accept='image/png, image/jpeg, image/webp' onChange={handlePicture}/>
     </div>
   )
 }
