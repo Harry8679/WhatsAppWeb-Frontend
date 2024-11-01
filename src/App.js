@@ -1,24 +1,28 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-// import { useDispatch, useSelector } from "react-redux";
-// import { logout } from "./features/userSlice";
+import { useSelector } from "react-redux";
+import { io } from "socket.io-client";
+import { SocketContext } from './context/SocketContext';
+
+const socket = io(process.env.REACT_APP_API_ENDPOINT.split('/api/v1')[0]);
 
 const App = () => {
-  // const dispatch = useDispatch();
-  // const { user } = useSelector((state) => state.user);
-  // console.log(user);
+  const { user } = useSelector((state) => state.user) || {};  // Ajoutez un objet vide par défaut
+  const { token } = user || {}; // Ajoutez un objet vide par défaut pour user
+
   return (
     <div className="dark">
-      {/* <button onClick={() => { dispatch(logout()) }}>Logout</button> */}
-      <Router>
-        <Routes>
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/" element={<Home />} />
-        </Routes>
-      </Router>
+      <SocketContext.Provider value={socket}>
+        <Router>
+          <Routes>
+            <Route path="/register" element={!token ? <Register /> : <Navigate to='/' />} />
+            <Route path="/login" element={!token ? <Login /> : <Navigate to='/' />} />
+            <Route path="/" element={token ? <Home socket={socket} /> : <Navigate to='/login' />} />
+          </Routes>
+        </Router>
+      </SocketContext.Provider>
     </div>
   );
 }
