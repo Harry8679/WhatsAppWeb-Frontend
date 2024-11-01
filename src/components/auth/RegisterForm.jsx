@@ -51,14 +51,6 @@ const RegisterForm = () => {
   console.log('values', watch());
   console.log('errors', errors);
 
-  // const uploadImage = async () => {
-  //   let formData = new FormData();
-  //   formData.append('upload_preset', cloud_secret);
-  //   formData.append('file', picture);
-  //   const { data } = await axios.post(`https://api.cloudinary.com/v1_1/${cloud_name}/image/upload`, formData);
-  //   console.log(data);
-  //   return data;
-  // };
   const uploadImage = async () => {
     try {
       let formData = new FormData();
