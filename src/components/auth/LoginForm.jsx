@@ -33,7 +33,6 @@ const LoginForm = () => {
         </div>
         {/* Form */}
         <form onSubmit={handleSubmit(onSubmit)} className='mt-6 space-y-6'>
-            {/* <input type="text" {...register('name')} /> */}
             <AuthInput name='email' type='email' placeholder='Email' register={register} error={errors?.email?.message} />
             <AuthInput name='password' type='password' placeholder='Password' register={register} error={errors?.password?.message} />
             {/* If we have an error */}
