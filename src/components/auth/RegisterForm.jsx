@@ -6,7 +6,7 @@ import AuthInput from './AuthInput';
 import { useDispatch, useSelector } from 'react-redux';
 import { PulseLoader } from 'react-spinners';
 import { Link, useNavigate } from 'react-router-dom';
-import { registerUser } from '../../features/userSlice';
+import { changeStatus, registerUser } from '../../features/userSlice';
 import Picture from './Picture';
 import axios from 'axios';
 
@@ -43,6 +43,7 @@ const RegisterForm = () => {
   const onSubmit = async (data) => {
     try {
       let userData = { ...data };
+      dispatch(changeStatus('loading'));
       
       if (picture) {
         const uploadData = await uploadImage(); // Récupère les données de l'upload
@@ -52,7 +53,6 @@ const RegisterForm = () => {
       }
 
       const res = await dispatch(registerUser(userData));
-
       // Vérifie si la réponse contient bien un user avant la navigation
       if (res.payload && res.payload.user) {
         navigate('/');
