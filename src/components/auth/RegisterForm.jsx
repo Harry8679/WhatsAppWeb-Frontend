@@ -23,30 +23,73 @@ const RegisterForm = () => {
   const [picture, setPicture] = useState();
   const [readablePicture, setReadablePicture] = useState('');
 
-const onSubmit = async (data) => {
-    let res;
-    if (picture) {
-      // Upload to cloudinary and then register user
-    } else {
-      // res = await dispatch(registerUser({ ...data, picture: '' }));
-      res = dispatch(registerUser({ ...data, picture: '' }));
-      console.log('res', res);
-      // Vérifie si le payload contient user avant de naviguer
+// const onSubmit = async (data) => {
+//     let res;
+//     if (picture) {
+//       // Upload to cloudinary and then register user
+//       await uploadImage().then(async(data) => {
+//         res = dispatch(registerUser({ ...data, picture: data.secure_url }));
+//       });
+//     } else {
+//       // res = await dispatch(registerUser({ ...data, picture: '' }));
+//       res = dispatch(registerUser({ ...data, picture: '' }));
+//       console.log('res', res);
+//       // Vérifie si le payload contient user avant de naviguer
+//     }
+//     if (res.payload && res.payload.user) {
+//       navigate('/');
+//     }
+// };
+  const onSubmit = async (data) => {
+    try {
+      let userData = { ...data };
+      
+      if (picture) {
+        const uploadData = await uploadImage(); // Récupère les données de l'upload
+        userData.picture = uploadData.secure_url; // Ajoute le lien de l'image si l'upload réussit
+      } else {
+        userData.picture = ''; // Par défaut, l'image est vide
+      }
+
+      const res = await dispatch(registerUser(userData));
+
+      // Vérifie si la réponse contient bien un user avant la navigation
+      if (res.payload && res.payload.user) {
+        navigate('/');
+      } else {
+        console.error("Erreur lors de l'enregistrement de l'utilisateur:", res.error || "Réponse inattendue");
+      }
+    } catch (error) {
+      console.error("Erreur dans onSubmit:", error);
     }
-    if (res.payload && res.payload.user) {
-      navigate('/');
-    }
-};
+  };
+
   console.log(picture, setPicture);
   console.log('values', watch());
   console.log('errors', errors);
 
+  // const uploadImage = async () => {
+  //   let formData = new FormData();
+  //   formData.append('upload_preset', cloud_secret);
+  //   formData.append('file', picture);
+  //   const { data } = await axios.post(`https://api.cloudinary.com/v1_1/${cloud_name}/image/upload`, formData);
+  //   console.log(data);
+  //   return data;
+  // };
   const uploadImage = async () => {
-    let formData = FormData();
-    formData.append('upload_preset', cloud_secret);
-    formData.append('file', picture);
-    const { data } = await axios.post(`https://api.cloudinary.com/v1_1/${cloud_name}/image/upload`, formData);
+    try {
+      let formData = new FormData();
+      formData.append('upload_preset', cloud_secret);
+      formData.append('file', picture);
+      const response = await axios.post(`https://api.cloudinary.com/v1_1/${cloud_name}/image/upload`, formData);
+      console.log(response.data); // Affiche la réponse pour vérifier les données
+      return response.data;
+    } catch (error) {
+      console.error("Erreur lors de l'upload de l'image:", error.response?.data || error.message);
+      throw error; // Relance l'erreur pour gestion plus haut si besoin
+    }
   };
+  
 
   return (
     <div className='min-h-screen w-full flex items-center justify-center overflow-hidden'>
