@@ -27,6 +27,23 @@ export const registerUser = createAsyncThunk('auth/register', async (values, { r
     }
 });
 
+export const loginUser = createAsyncThunk('auth/login', async (values, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.post(`${AUTH_ENDPOINT}/login`, { ...values });
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.response?.data?.error?.message || 'An error occurred');
+    }
+});
+// export const loginUser = createAsyncThunk('auth/login', async (userData, thunkAPI) => {
+//     try {
+//       const response = await axios.post('/api/login', userData);
+//       return response.data; // Assurez-vous que `response.data` contient un objet `user`
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue(error.response.data.message || 'An error occurred');
+//     }
+//   });
+
 export const userSlice = createSlice({ 
     name: 'user', 
     initialState,
@@ -58,6 +75,19 @@ export const userSlice = createSlice({
             state.user = action.payload.user; // Assurez-vous que action.payload contient un champ user.
         })
         .addCase(registerUser.rejected, (state, action) => {
+            state.status = 'failed';
+            state.error = action.payload;
+        })
+        .addCase(loginUser.pending, (state, action) => {
+            state.status = 'loading';
+            // state.error = '';
+        })
+        .addCase(loginUser.fulfilled, (state, action) => {
+            state.status = 'successed';
+            state.error = '';
+            state.user = action.payload.user; // Assurez-vous que action.payload contient un champ user.
+        })
+        .addCase(loginUser.rejected, (state, action) => {
             state.status = 'failed';
             state.error = action.payload;
         });
