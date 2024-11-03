@@ -1,4 +1,5 @@
 import React from 'react'
+import { Sidebar } from '../components/sidebar';
 
 const Home = () => {
   return (
@@ -6,7 +7,7 @@ const Home = () => {
       {/* container */}
       <div className="container flex">
         {/* sidebar */}
-        
+        <Sidebar />
       </div>
     </div>
   )
