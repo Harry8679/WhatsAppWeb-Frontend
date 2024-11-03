@@ -64,7 +64,7 @@ export const userSlice = createSlice({
         .addCase(registerUser.fulfilled, (state, action) => {
             state.status = 'successed';
             state.error = '';
-            state.user = action.payload.user; // Assurez-vous que action.payload contient un champ user.
+            state.user = action.payload.user;
         })
         .addCase(registerUser.rejected, (state, action) => {
             state.status = 'failed';
@@ -77,7 +77,7 @@ export const userSlice = createSlice({
         .addCase(loginUser.fulfilled, (state, action) => {
             state.status = 'successed';
             state.error = '';
-            state.user = action.payload.user; // Assurez-vous que action.payload contient un champ user.
+            state.user = action.payload.user;
         })
         .addCase(loginUser.rejected, (state, action) => {
             state.status = 'failed';
