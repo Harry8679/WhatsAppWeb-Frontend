@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const AUTH_ENDPOINT = `${process.env.REACT_APP_API_ENDPOINT}/auth`;
 
-console.log("API Endpoint:", process.env.REACT_APP_API_ENDPOINT); // Cela devrait afficher 'http://localhost:8080/api/v1'
+console.log("API Endpoint:", process.env.REACT_APP_API_ENDPOINT);
 
 const initialState = {
     status: '',
