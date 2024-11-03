@@ -35,14 +35,6 @@ export const loginUser = createAsyncThunk('auth/login', async (values, { rejectW
       return rejectWithValue(error.response?.data?.error?.message || 'An error occurred');
     }
 });
-// export const loginUser = createAsyncThunk('auth/login', async (userData, thunkAPI) => {
-//     try {
-//       const response = await axios.post('/api/login', userData);
-//       return response.data; // Assurez-vous que `response.data` contient un objet `user`
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.response.data.message || 'An error occurred');
-//     }
-//   });
 
 export const userSlice = createSlice({ 
     name: 'user', 
