@@ -1,5 +1,6 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector } from 'react-redux';
+import { CommunityIcon } from '../../../svg';
 
 const SidebarHeader = () => {
   const { user } = useSelector((state) => state.user);
@@ -11,6 +12,14 @@ const SidebarHeader = () => {
         <button className='btn'>
             <img src={user.picture} alt={user.name} className='w-full h-full rounded-full object-cover' />
         </button>
+        {/* user icons */}
+        <ul className="flex items-center gap-x-2 5">
+            <li>
+                <button className="btn">
+                    <CommunityIcon className='dark:fill-dark_svg_1' />
+                </button>
+            </li>
+        </ul>
       </div>
     </div>
   )
