@@ -9,7 +9,7 @@ const SidebarHeader = () => {
       <div className="w-full flex items-center justify-between">
         {/* user image */}
         <button className='btn'>
-            <img src={user.picture} alt="user" />
+            <img src={user.picture} alt={user.name} className='w-full h-full rounded-full object-cover' />
         </button>
       </div>
     </div>
