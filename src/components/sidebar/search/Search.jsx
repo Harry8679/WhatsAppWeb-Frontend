@@ -11,7 +11,7 @@ const Search = ({ searchLength }) => {
       <div className='px-[10px]'>
         {/* Search input container */}
         <div className='flex items-center gap-x-2'>
-          <div className='w-full dark:bg-dark_bg_2 rounded-lg pl-2'>
+          <div className='w-full flex dark:bg-dark_bg_2 rounded-lg pl-2'>
             {show || searchLength > 0 ? (
               <span className='w-8 flex items-center justify-center rotateAnimation'>
                 <ReturnIcon className='fill-green_1 w-5' />
