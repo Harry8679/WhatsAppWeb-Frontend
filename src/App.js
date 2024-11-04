@@ -17,7 +17,6 @@ const App = () => {
       <SocketContext.Provider value={socket}>
         <Router>
           <Routes>
-            {/* <Route path="/" element={<Home />} /> */}
             <Route path="/register" element={!token ? <Register /> : <Navigate to='/' />} />
             <Route path="/login" element={!token ? <Login /> : <Navigate to='/' />} />
             <Route path="/" element={token ? <Home socket={socket} /> : <Navigate to='/login' />} />
