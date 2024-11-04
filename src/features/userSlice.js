@@ -56,35 +56,49 @@ export const userSlice = createSlice({
             state.status = action.payload;
         },
     },
-    extraReducers(builder) {
-        builder.addCase(registerUser.pending, (state, action) => {
-            state.status = 'loading';
-            // state.error = '';
-        })
-        .addCase(registerUser.fulfilled, (state, action) => {
-            state.status = 'successed';
-            state.error = '';
-            state.user = action.payload.user;
-        })
-        .addCase(registerUser.rejected, (state, action) => {
-            state.status = 'failed';
-            state.error = action.payload;
-        })
-        .addCase(loginUser.pending, (state, action) => {
-            state.status = 'loading';
-            // state.error = '';
-        })
-        .addCase(loginUser.fulfilled, (state, action) => {
-            state.status = 'successed';
-            state.error = '';
-            state.user = action.payload.user;
-        })
-        .addCase(loginUser.rejected, (state, action) => {
-            state.status = 'failed';
-            state.error = action.payload;
-        });
+    extraReducers: (builder) => {
+        builder
+            .addCase(registerUser.pending, (state) => {
+                state.status = 'loading';
+            })
+            .addCase(registerUser.fulfilled, (state, action) => {
+                state.status = 'succeeded';
+                state.error = '';
+                state.user = {
+                    id: action.payload._id,
+                    name: action.payload.name,
+                    email: action.payload.email,
+                    picture: action.payload.picture,
+                    status: action.payload.status,
+                    token: action.payload.access_token,
+                };
+            })
+            .addCase(registerUser.rejected, (state, action) => {
+                state.status = 'failed';
+                state.error = action.payload;
+            })
+            .addCase(loginUser.pending, (state) => {
+                state.status = 'loading';
+            })
+            .addCase(loginUser.fulfilled, (state, action) => {
+                state.status = 'succeeded';
+                state.error = '';
+                state.user = {
+                    id: action.payload._id,
+                    name: action.payload.name,
+                    email: action.payload.email,
+                    picture: action.payload.picture,
+                    status: action.payload.status,
+                    token: action.payload.access_token,
+                };
+            })
+            .addCase(loginUser.rejected, (state, action) => {
+                state.status = 'failed';
+                state.error = action.payload;
+            });
     }
 });
+
 
 export const { logout, changeStatus } = userSlice.actions;
 
