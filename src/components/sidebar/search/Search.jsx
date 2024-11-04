@@ -3,6 +3,8 @@ import { ReturnIcon, SearchIcon } from '../../../svg';
 
 const Search = ({ searchLength }) => {
   const [show, setShow] = useState(false);
+
+  const handleSearch = (e) => {}
   return (
     <div className='h-[49px] py-1.5'>
       {/* Container */}
@@ -19,6 +21,11 @@ const Search = ({ searchLength }) => {
                 <SearchIcon className='dark:fill-dark_svg_2 w-5' />
               </span>
             )}
+            <input type="text" placeholder='Search or start a new chat' className='input' 
+              onFocus={() => setShow(true)}
+              onBlur={() => searchLength === 0 && setShow(false)}
+              onKeyDown={(e) => handleSearch(e)}
+            />
           </div>
         </div>
       </div>
