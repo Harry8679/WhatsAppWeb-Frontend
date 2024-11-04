@@ -1,6 +1,7 @@
 import React from 'react'
 import SidebarHeader from './header/SidebarHeader';
 import { Notifications } from './notifications';
+import Search from './search';
 
 const Sidebar = () => {
   return (
@@ -9,6 +10,8 @@ const Sidebar = () => {
       <SidebarHeader />
       {/* Notifications */}
       <Notifications />
+      {/* Search */}
+      <Search />
     </div>
   )
 }
