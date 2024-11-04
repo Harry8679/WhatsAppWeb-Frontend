@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
-import { CommunityIcon } from '../../../svg';
+import { ChatIcon, CommunityIcon, DotsIcon, StoryIcon } from '../../../svg';
 
 const SidebarHeader = () => {
   const { user } = useSelector((state) => state.user);
@@ -17,6 +17,21 @@ const SidebarHeader = () => {
             <li>
                 <button className="btn">
                     <CommunityIcon className='dark:fill-dark_svg_1' />
+                </button>
+            </li>
+            <li>
+                <button className="btn">
+                    <StoryIcon className='dark:fill-dark_svg_1' />
+                </button>
+            </li>
+            <li>
+                <button className="btn">
+                    <ChatIcon className='dark:fill-dark_svg_1' />
+                </button>
+            </li>
+            <li>
+                <button className="btn">
+                    <DotsIcon className='dark:fill-dark_svg_1' />
                 </button>
             </li>
         </ul>
