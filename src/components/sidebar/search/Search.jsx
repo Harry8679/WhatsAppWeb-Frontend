@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { ReturnIcon, SearchIcon } from '../../../svg';
+import { FilterIcon, ReturnIcon, SearchIcon } from '../../../svg';
 
 const Search = ({ searchLength }) => {
   const [show, setShow] = useState(false);
@@ -27,6 +27,9 @@ const Search = ({ searchLength }) => {
               onKeyDown={(e) => handleSearch(e)}
             />
           </div>
+          <button className='btn'>
+            <FilterIcon className='dark:fill-dark_svg_2' />
+          </button>
         </div>
       </div>
     </div>
