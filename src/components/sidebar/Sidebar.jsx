@@ -4,7 +4,8 @@ import { Notifications } from './notifications';
 import Search from './search';
 
 const Sidebar = () => {
-  const [searchResults, setSearchResults] = useState([]);
+//   const [searchResults, setSearchResults] = useState([]);
+  const [searchResults] = useState([]);
   return (
     <div className='w-[40%] h-full select-none'>
       {/* Sidebar Header */}
