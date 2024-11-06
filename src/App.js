@@ -19,6 +19,7 @@ const App = () => {
           <Routes>
             <Route path="/register" element={!token ? <Register /> : <Navigate to='/' />} />
             <Route path="/login" element={!token ? <Login /> : <Navigate to='/' />} />
+            {/* <Route path="/login" element={<Login />} /> */}
             <Route path="/" element={token ? <Home socket={socket} /> : <Navigate to='/login' />} />
           </Routes>
         </Router>
