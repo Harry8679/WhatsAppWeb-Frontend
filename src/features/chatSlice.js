@@ -32,6 +32,20 @@ export const chatSlice = createSlice({
         setActiveConversation: (state, action) => {
             state.activeConversation = action.payload;
         }
+    },
+    extraReducers(builder) {
+        builder
+            .addCase(getConversations.pending, (state, action) => {
+                state.status = 'loading';
+            })
+            .addCase(getConversations.fulfilled, (state, action) => {
+                state.status = 'succeeded';
+                state.conversations = action.payload;
+            })
+            .addCase(getConversations.rejected, (state, action) => {
+                state.status = 'failed';
+                state.error = action.payload;
+            })
     }
 });
 
