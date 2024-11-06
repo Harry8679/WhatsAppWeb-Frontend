@@ -1,4 +1,7 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import axios from 'axios';
+
+const CONVERSATION_ENDPOINT = `${process.env.REACT_APP_API_ENDPOINT}/conversation`;
 
 const initialState = {
     status: '',
@@ -7,6 +10,20 @@ const initialState = {
     activeConversation: {},
     notifications: []
 };
+
+// functions
+export const getConversations = createAsyncThunk('conversations/all', async (token, { rejectWithValue }) => {
+    try {
+        const { data } = await axios.get(CONVERSATION_ENDPOINT, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        });
+        return data;
+    } catch(error){
+        return rejectWithValue(error.response.data.error.message);
+    };
+});
 
 export const chatSlice = createSlice({
     name: 'chat',
