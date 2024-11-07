@@ -6,7 +6,7 @@ import { Conversations } from './conversations';
 
 const Sidebar = () => {
   const [searchResults, setSearchRgesults] = useState([]);
-  const [searchResults] = useState([]);
+//   const [searchResults] = useState([]);
   return (
     <div className='w-[40%] h-full select-none'>
       {/* Sidebar Header */}
