@@ -1,6 +1,8 @@
 import React from 'react'
+import moment from 'moment';
 
 const Conversation = ({ convo }) => {
+  console.log(moment(convo?.latestMessage?.createdAt).fromNow(true));
   return (
     // Container
     <div className='relative w-full flex items-center justify-between py-[10px]'>
