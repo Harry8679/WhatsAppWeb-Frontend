@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Conversation = () => {
+const Conversation = ({ convo }) => {
   return (
     <div>
-      Conversation
+      {convo?.latestMessage?.message}
     </div>
   )
 }
