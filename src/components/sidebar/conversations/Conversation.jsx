@@ -32,7 +32,6 @@ const Conversation = ({ convo }) => {
         {/* Right */}
         <div className='flex flex-col gap-y-4 items-end text-xs'>
             <span className='dark:text-dark_text_2'>{convo.latestMessage?.createdAt ? dateHandler(convo.latestMessage?.createdAt) : 'date non indiquée'}</span>
-            {/* <span>{moment(convo?.latestMessage?.createdAt).fromNow(true)}</span> */}
         </div>
         </div>
     </li>
