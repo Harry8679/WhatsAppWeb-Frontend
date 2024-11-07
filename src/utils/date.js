@@ -10,7 +10,7 @@ export const dateHandler = (date) => {
         if (Number(days) < 8) {
             return now.subtract(Number(days), 'days').format('dddd');
         } else {
-            momentDate.format('DD/MM/YYYY');
+            return momentDate.format('DD/MM/YYYY');
         }
     }
     if (time === 'a few seconds') {
