@@ -34,6 +34,8 @@ const Conversation = ({ convo }) => {
             <span className='dark:text-dark_text_2'>{convo.latestMessage?.createdAt ? dateHandler(convo.latestMessage?.createdAt) : 'date non indiquée'}</span>
         </div>
         </div>
+        {/* Border */}
+        <div className='ml-16 border-b border-b-dark_border_1'></div>
     </li>
   )
 }
