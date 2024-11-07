@@ -6,9 +6,7 @@ const Conversations = () => {
   const { conversations } = useSelector((state) => state.chat);
   return (
     <div className='convos scrollbar'>
-      {
-        conversations && conversations.map(convo => <Conversation convo={convo} key={convo._id} />)
-      }
+      {conversations && conversations.map(convo => <Conversation convo={convo} key={convo._id} />)}
     </div>
   )
 }

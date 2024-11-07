@@ -47,6 +47,10 @@
   width: 5px;
 }
 /*-- Track --*/
+.scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+/*-- Thum --*/
 .scrollbar::-webkit-scrollbar-thumb {
   background: #444e54;
 }
