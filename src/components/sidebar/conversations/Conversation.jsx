@@ -2,7 +2,7 @@ import React from 'react'
 
 const Conversation = ({ convo }) => {
   return (
-    <div>
+    <div className='h-[800px]'>
       {convo?.latestMessage?.message}
     </div>
   )

@@ -41,16 +41,22 @@
   }
 }
 
-/*--- Custom scrollbar ---*/
-/*-- Width --*/
+/*--- Custom scrollbar styles ---*/
 .scrollbar::-webkit-scrollbar {
   width: 5px;
 }
-/*-- Track --*/
+
 .scrollbar::-webkit-scrollbar-track {
   background: transparent;
 }
-/*-- Thum --*/
+
 .scrollbar::-webkit-scrollbar-thumb {
   background: #444e54;
+  border-radius: 10px;
+}
+
+/* Pour Firefox */
+.scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #444e54 transparent;
 }
