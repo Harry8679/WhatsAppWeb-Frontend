@@ -1,9 +1,14 @@
-import React from 'react'
+import React from 'react';
+import { useSelector } from 'react-redux';
+import Conversation from './Conversation';
 
 const Conversations = () => {
+  const { conversations } = useSelector((state) => state.chat);
   return (
-    <div>
-      Conversations
+    <div className='convos scrollbar'>
+      {
+        conversations && conversations.map(convo => <Conversation convo={convo} key={convo._id} />)
+      }
     </div>
   )
 }
