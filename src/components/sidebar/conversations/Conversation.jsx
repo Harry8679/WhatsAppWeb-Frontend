@@ -25,6 +25,10 @@ const Conversation = ({ convo }) => {
             </div>
         </div>
       </div>
+      {/* Right */}
+      <div className='flex flex-col gap-y-4 items-end text-xs'>
+        <span className='dark:text-dark_text_2'>{convo.latestMessage?.createdAt ? convo.latestMessage?.createdAt : 'date non indiquée'}</span>
+      </div>
     </div>
   )
 }
