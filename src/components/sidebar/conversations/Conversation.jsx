@@ -10,7 +10,19 @@ const Conversation = ({ convo }) => {
         <div className='relative min-w-[50px] h-[50px] rounded-full overflow-hidden'>
             <img src={convo.picture ? convo.picture : 'https://img.freepik.com/vecteurs-libre/cercle-bleu-utilisateur-blanc_78370-4707.jpg'} 
                 alt={convo.name} className='w-full h-full object-cover' />
-            {/* {convo?.latestMessage?.message} */}
+        </div>
+        {/* Conversation name and message */}
+        <div className='w-full flex flex-col'>
+            {/* Conversation name */}
+            <h1 className='font-bold flex items-center gap-x-2 text-white'>{convo.name}</h1>
+            {/* Conversation message */}
+            <div>
+                <div className='flex items-center gap-x-1 dark:text-dark_text_2'>
+                    <div className='flex-1 items-center gap-x-1 dark:text-dark_text_2'>
+                        <p>{convo?.latestMessage?.message}</p>
+                    </div>
+                </div>
+            </div>
         </div>
       </div>
     </div>
