@@ -10,7 +10,7 @@ const Search = ({ searchLength, setSearchResults }) => {
 
   const handleSearch = async(e) => {
     console.log(e.target.value);
-    if (e.key === 'Enter') {
+    if (e.target.value && e.key === 'Enter') {
       try {
         const { data } = await axios.get(`${process.env.REACT_APP_API_ENDPOINT}/user?search=${e.target.value}`, {
           headers: {
