@@ -1,9 +1,9 @@
 import React from 'react'
-import moment from 'moment';
+// import moment from 'moment';
 import { dateHandler } from '../../../utils/date';
 
 const Conversation = ({ convo }) => {
-  console.log(moment(convo?.latestMessage?.createdAt).fromNow(true));
+//   console.log(moment(convo?.latestMessage?.createdAt).fromNow(true));
   return (
     <li className='list-none h-[72px] w-full dark:bg-dark_bg_1 hover:dark:bg-dark_bg_2 cursor-pointer dark:text-dark_bg_2'>
         {/* Container */}

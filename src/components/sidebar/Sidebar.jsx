@@ -14,7 +14,7 @@ const Sidebar = () => {
       {/* Notifications */}
       <Notifications />
       {/* Search */}
-      <Search searchLength={searchResults.length} searchResults={setSearchRgesults} />
+      <Search searchLength={searchResults.length} setSearchResults={setSearchRgesults} />
       {/* Conversations */}
       <Conversations />
     </div>
