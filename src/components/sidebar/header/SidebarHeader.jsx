@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux';
 import { ChatIcon, CommunityIcon, DotsIcon, StoryIcon } from '../../../svg';
 
 const SidebarHeader = () => {
   const { user } = useSelector((state) => state.user);
+  const [showMenu, setShowMenu] = useState(true);
   return (
     <div className='h-[50px] dark:bg-dark_bg_2 flex items-center p16'>
       {/* Container */}
