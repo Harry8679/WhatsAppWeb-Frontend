@@ -10,7 +10,7 @@ const Conversation = ({ convo }) => {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
   const { token } = user;
-  console.log(convo);
+    // console.log(convo);
   const values = {
     receiver_id: getConversationId(user, convo.users),
     token
@@ -20,7 +20,7 @@ const Conversation = ({ convo }) => {
   };
 
   return (
-    <li onClick={() => openConversation} className='list-none h-[72px] w-full dark:bg-dark_bg_1 hover:dark:bg-dark_bg_2 cursor-pointer dark:text-dark_bg_2'>
+    <li onClick={() => openConversation()} className='list-none h-[72px] w-full dark:bg-dark_bg_1 hover:dark:bg-dark_bg_2 cursor-pointer dark:text-dark_bg_2'>
         {/* Container */}
         <div className='relative w-full flex items-center justify-between py-[10px]'>
         {/* Left */}

@@ -28,16 +28,21 @@ export const getConversations = createAsyncThunk('conversations/all', async (tok
 export const open_create_conversation = createAsyncThunk('conversations/open_create', async (values, { rejectWithValue }) => {
     const { token, receiver_id } = values;
     try {
-        const { data } = await axios.get(CONVERSATION_ENDPOINT, { receiver_id }, {
-            headers: {
-                Authorization: `Bearer ${token}`
+        const { data } = await axios.post(
+            CONVERSATION_ENDPOINT,
+            { receiver_id }, // Envoyer receiver_id dans le corps de la requête
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
             }
-        });
+        );
         return data;
-    } catch(error){
+    } catch (error) {
         return rejectWithValue(error.response.data.error.message);
-    };
+    }
 });
+
 
 export const chatSlice = createSlice({
     name: 'chat',
