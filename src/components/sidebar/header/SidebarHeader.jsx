@@ -5,7 +5,7 @@ import Menu from './Menu';
 
 const SidebarHeader = () => {
   const { user } = useSelector((state) => state.user);
-  const [showMenu, setShowMenu] = useState(true);
+  const [showMenu, setShowMenu] = useState(false);
   return (
     <div className='h-[50px] dark:bg-dark_bg_2 flex items-center p16'>
       {/* Container */}
@@ -31,7 +31,7 @@ const SidebarHeader = () => {
                     <ChatIcon className='dark:fill-dark_svg_1' />
                 </button>
             </li>
-            <li className='relative'>
+            <li className='relative' onClick={() => setShowMenu((prev) => !prev)}>
                 <button className="btn">
                     <DotsIcon className='dark:fill-dark_svg_1' />
                 </button>
