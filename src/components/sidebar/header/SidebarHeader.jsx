@@ -31,7 +31,7 @@ const SidebarHeader = () => {
                     <ChatIcon className='dark:fill-dark_svg_1' />
                 </button>
             </li>
-            <li>
+            <li className='relative'>
                 <button className="btn">
                     <DotsIcon className='dark:fill-dark_svg_1' />
                 </button>
