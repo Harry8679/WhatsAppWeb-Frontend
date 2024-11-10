@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux';
 import { ChatIcon, CommunityIcon, DotsIcon, StoryIcon } from '../../../svg';
+import Menu from './Menu';
 
 const SidebarHeader = () => {
   const { user } = useSelector((state) => state.user);
@@ -34,6 +35,7 @@ const SidebarHeader = () => {
                 <button className="btn">
                     <DotsIcon className='dark:fill-dark_svg_1' />
                 </button>
+                {showMenu ? <Menu /> : null}
             </li>
         </ul>
       </div>
@@ -41,4 +43,4 @@ const SidebarHeader = () => {
   )
 }
 
-export default SidebarHeader
+export default SidebarHeader;
