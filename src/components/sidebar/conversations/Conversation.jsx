@@ -3,6 +3,7 @@ import React from 'react'
 import { dateHandler } from '../../../utils/date';
 import { useDispatch, useSelector } from 'react-redux';
 import { open_create_conversation } from '../../../features/chatSlice';
+import { getConversationId } from '../../../utils/chat';
 
 const Conversation = ({ convo }) => {
   // console.log(moment(convo?.latestMessage?.createdAt).fromNow(true));
@@ -11,7 +12,7 @@ const Conversation = ({ convo }) => {
   const { token } = user;
   console.log(convo);
   const values = {
-    receiver_id: '',
+    receiver_id: getConversationId(user, convo.users),
     token
   };
   const openConversation = () => {
