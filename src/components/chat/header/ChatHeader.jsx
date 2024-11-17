@@ -10,7 +10,9 @@ const ChatHeader = () => {
       <div className='w-full flex items-center justify-between'>
         <div className='flex items-center gap-x-4'>
             {/* Conversation Img */}
-            <img src={picture} alt={`${name} pic`} className='w-full h-full rounded-full object-cover' />
+            <button className='btn'>
+                <img src={picture} alt={`${name} pic`} className='w-full h-full rounded-full object-cover' />
+            </button>
         </div>
       </div>
     </div>
