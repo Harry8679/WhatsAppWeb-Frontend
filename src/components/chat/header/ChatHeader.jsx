@@ -5,8 +5,14 @@ const ChatHeader = () => {
   const { activeConversation } = useSelector((state) => state.chat);
   const { name, picture } = activeConversation;
   return (
-    <div>
-      Chat Header
+    <div className='h-[59px] dark:bg-dark_bg_2 flex items-center p-16 select-none'>
+      {/* Container */}
+      <div className='w-full flex items-center justify-between'>
+        <div className='flex items-center gap-x-4'>
+            {/* Conversation Img */}
+            <img src={picture} alt={`${name} pic`} className='w-full h-full rounded-full object-cover' />
+        </div>
+      </div>
     </div>
   )
 }
