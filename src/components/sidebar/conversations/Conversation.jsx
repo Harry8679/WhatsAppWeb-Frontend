@@ -9,20 +9,6 @@ const Conversation = ({ convo }) => {
   const { user } = useSelector((state) => state.user);
   const { token } = user;
 
-  // Fonction pour ouvrir la conversation
-  // const openConversation = () => {
-  //   const values = {
-  //     receiver_id: getConversationId(user, convo.users),
-  //     token,
-  //   };
-
-  //   // Déclenche l'action pour ouvrir/initialiser la conversation
-  //   dispatch(open_create_conversation(values));
-    
-  //   // Met à jour la conversation active dans Redux
-  //   dispatch(setActiveConversation(convo));
-  // };
-  
   const openConversation = () => {
     // Met à jour immédiatement la conversation active dans Redux
     dispatch(setActiveConversation(convo));
