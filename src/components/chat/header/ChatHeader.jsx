@@ -13,7 +13,7 @@ const ChatHeader = () => {
         <div className='flex items-center gap-x-4'>
             {/* Conversation Img */}
             <button className='btn !min-w-[40px] !max-w-[40px]'>
-                <img src={picture} alt={`${name} pic`} className='w-full h-full rounded-full object-cover' />
+                <img src={picture ? picture : 'https://img.freepik.com/vecteurs-libre/cercle-bleu-utilisateur-blanc_78370-4707.jpg'} alt={`${name} pic`} className='w-full h-full rounded-full object-cover' />
             </button>
         </div>
       </div>

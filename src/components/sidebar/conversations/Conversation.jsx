@@ -10,7 +10,7 @@ const Conversation = ({ convo }) => {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
   const { token } = user;
-    // console.log(convo);
+    // console.log('convo', convo);
   const values = {
     receiver_id: getConversationId(user, convo.users),
     token
