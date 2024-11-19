@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { DotsIcon, SearchLargeIcon } from '../../../svg';
+import { capitalize } from '../../../utils/string';
 
 const ChatHeader = () => {
   const { activeConversation } = useSelector((state) => state.chat);
@@ -20,7 +21,7 @@ const ChatHeader = () => {
             </button>
             {/* Conversation name and online status */}
             <div className='flex flex-col'>
-                <h1 className='dark:text-white text-md font-bold'>{name.split(' ')[0]}</h1>
+                <h1 className='dark:text-white text-md font-bold'>{capitalize(name.split(' ')[0])}</h1>
                 <span className='text-xs dark:text-dark_svg_2'>online</span>
             </div>
         </div>
