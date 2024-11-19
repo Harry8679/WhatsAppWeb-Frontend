@@ -1,5 +1,6 @@
 import React from 'react'
 import ChatHeader from './header/ChatHeader';
+import ChatMessages from './messages/ChatMessages';
 
 const ChatContainer = () => {
   return (
@@ -7,6 +8,8 @@ const ChatContainer = () => {
       <div>
         {/* Chat Header */}
         <ChatHeader />
+        {/* Chat Messages */}
+        <ChatMessages />
       </div>
     </div>
   )
