@@ -15,6 +15,11 @@ const ChatHeader = () => {
             <button className='btn !min-w-[40px] !max-w-[40px]'>
                 <img src={picture ? picture : 'https://img.freepik.com/vecteurs-libre/cercle-bleu-utilisateur-blanc_78370-4707.jpg'} alt={`${name} pic`} className='w-full h-full rounded-full object-cover' />
             </button>
+            {/* Conversation name and online status */}
+            <div className='flex flex-col'>
+                <h1 className='dark:text-white text-md font-bold'>{name.split(' ')[0]}</h1>
+                <span className='text-xs dark:text-dark_svg_2'>online</span>
+            </div>
         </div>
       </div>
     </div>
